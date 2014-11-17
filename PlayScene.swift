@@ -21,7 +21,8 @@ class PlayScene: SKScene {
     // let screenHeight = screenSize.height
     
     var origCloudPositionY = CGFloat(5)
-    var cloudPositionX = CGFloat(5)
+    var cloudPositionX = CGFloat(35)
+    var cloudPositionY = CGFloat(0)
     var maxCloudY = CGFloat(0)
     var maxObjY = CGFloat(0)
     var maxObjX = CGFloat (0)
@@ -31,14 +32,7 @@ class PlayScene: SKScene {
         println("We're at the new scene!")
         //do the setup
         setupGame()
-        
-        
-        self.player.anchorPoint = CGPointMake(0.5, 0.5)
-        self.player.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + (CGRectGetMidY(self.frame)/2 ))
-        
-        self.addChild(self.player)
-        self.addChild(self.cloud)
-        
+
     }
     //Game functions
     //####################
@@ -47,6 +41,12 @@ class PlayScene: SKScene {
         self.backgroundColor = UIColor(hex: 0x80D9FF)
         self.maxObjY = screenSize.height
         self.maxObjX = screenSize.width
+        self.player.anchorPoint = CGPointMake(0.5, 0.5)
+        self.player.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + (CGRectGetMidY(self.frame)/2 ))
+        self.cloud.position = CGPointMake(cloudPositionX, cloudPositionY)
+        
+        self.addChild(self.player)
+        self.addChild(self.cloud)
     }
     func gameOver() {
         //gameOver code
