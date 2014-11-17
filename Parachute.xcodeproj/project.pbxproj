@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AD4542C1A196BD20041994C /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454221A196BD20041994C /* cloud2.png */; };
+		2AD4542D1A196BD20041994C /* newPlaneRightSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454231A196BD20041994C /* newPlaneRightSmall.png */; };
+		2AD4542E1A196BD20041994C /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454241A196BD20041994C /* play.png */; };
+		2AD4542F1A196BD20041994C /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454251A196BD20041994C /* plane.png */; };
+		2AD454301A196BD20041994C /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454261A196BD20041994C /* playButton.png */; };
+		2AD454311A196BD20041994C /* planeRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454271A196BD20041994C /* planeRight.png */; };
+		2AD454321A196BD20041994C /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454281A196BD20041994C /* player.png */; };
+		2AD454331A196BD20041994C /* playerLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454291A196BD20041994C /* playerLeft.png */; };
+		2AD454341A196BD20041994C /* playerRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD4542A1A196BD20041994C /* playerRight.png */; };
+		2AD454351A196BD20041994C /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD4542B1A196BD20041994C /* sky.png */; };
 		2AEEA80C1A102F2D00FFF79A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEA80B1A102F2D00FFF79A /* AppDelegate.swift */; };
 		2AEEA80E1A102F2D00FFF79A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEA80D1A102F2D00FFF79A /* GameScene.sks */; };
 		2AEEA8101A102F2D00FFF79A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEA80F1A102F2D00FFF79A /* GameScene.swift */; };
@@ -15,6 +25,8 @@
 		2AEEA8171A102F2E00FFF79A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEA8161A102F2E00FFF79A /* Images.xcassets */; };
 		2AEEA81A1A102F2E00FFF79A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEA8181A102F2E00FFF79A /* LaunchScreen.xib */; };
 		2AEEA8261A102F2E00FFF79A /* ParachuteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEA8251A102F2E00FFF79A /* ParachuteTests.swift */; };
+		2AEEA8321A10541A00FFF79A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEA8311A10541A00FFF79A /* UIColorExtension.swift */; };
+		2AEEA8341A10628D00FFF79A /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEA8331A10628D00FFF79A /* PlayScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +40,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AD454221A196BD20041994C /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/cloud2.png; sourceTree = "<group>"; };
+		2AD454231A196BD20041994C /* newPlaneRightSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newPlaneRightSmall.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/newPlaneRightSmall.png; sourceTree = "<group>"; };
+		2AD454241A196BD20041994C /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/play.png; sourceTree = "<group>"; };
+		2AD454251A196BD20041994C /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plane.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/plane.png; sourceTree = "<group>"; };
+		2AD454261A196BD20041994C /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playButton.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/playButton.png; sourceTree = "<group>"; };
+		2AD454271A196BD20041994C /* planeRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planeRight.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/planeRight.png; sourceTree = "<group>"; };
+		2AD454281A196BD20041994C /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/player.png; sourceTree = "<group>"; };
+		2AD454291A196BD20041994C /* playerLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playerLeft.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/playerLeft.png; sourceTree = "<group>"; };
+		2AD4542A1A196BD20041994C /* playerRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playerRight.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/playerRight.png; sourceTree = "<group>"; };
+		2AD4542B1A196BD20041994C /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/sky.png; sourceTree = "<group>"; };
 		2AEEA8061A102F2D00FFF79A /* Parachute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parachute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEEA80A1A102F2D00FFF79A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AEEA80B1A102F2D00FFF79A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +62,8 @@
 		2AEEA81F1A102F2E00FFF79A /* ParachuteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParachuteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEEA8241A102F2E00FFF79A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AEEA8251A102F2E00FFF79A /* ParachuteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParachuteTests.swift; sourceTree = "<group>"; };
+		2AEEA8311A10541A00FFF79A /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		2AEEA8331A10628D00FFF79A /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayScene.swift; path = ../PlayScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AD454211A196BB40041994C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2AD454221A196BD20041994C /* cloud2.png */,
+				2AD454231A196BD20041994C /* newPlaneRightSmall.png */,
+				2AD454241A196BD20041994C /* play.png */,
+				2AD454251A196BD20041994C /* plane.png */,
+				2AD454261A196BD20041994C /* playButton.png */,
+				2AD454271A196BD20041994C /* planeRight.png */,
+				2AD454281A196BD20041994C /* player.png */,
+				2AD454291A196BD20041994C /* playerLeft.png */,
+				2AD4542A1A196BD20041994C /* playerRight.png */,
+				2AD4542B1A196BD20041994C /* sky.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		2AEEA7FD1A102F2D00FFF79A = {
 			isa = PBXGroup;
 			children = (
@@ -81,9 +122,12 @@
 		2AEEA8081A102F2D00FFF79A /* Parachute */ = {
 			isa = PBXGroup;
 			children = (
+				2AD454211A196BB40041994C /* Images */,
 				2AEEA80B1A102F2D00FFF79A /* AppDelegate.swift */,
 				2AEEA80D1A102F2D00FFF79A /* GameScene.sks */,
 				2AEEA80F1A102F2D00FFF79A /* GameScene.swift */,
+				2AEEA8331A10628D00FFF79A /* PlayScene.swift */,
+				2AEEA8311A10541A00FFF79A /* UIColorExtension.swift */,
 				2AEEA8111A102F2E00FFF79A /* GameViewController.swift */,
 				2AEEA8131A102F2E00FFF79A /* Main.storyboard */,
 				2AEEA8161A102F2E00FFF79A /* Images.xcassets */,
@@ -198,9 +242,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD454341A196BD20041994C /* playerRight.png in Resources */,
+				2AD4542E1A196BD20041994C /* play.png in Resources */,
+				2AD454321A196BD20041994C /* player.png in Resources */,
 				2AEEA81A1A102F2E00FFF79A /* LaunchScreen.xib in Resources */,
 				2AEEA8171A102F2E00FFF79A /* Images.xcassets in Resources */,
+				2AD454351A196BD20041994C /* sky.png in Resources */,
 				2AEEA80E1A102F2D00FFF79A /* GameScene.sks in Resources */,
+				2AD454331A196BD20041994C /* playerLeft.png in Resources */,
+				2AD4542F1A196BD20041994C /* plane.png in Resources */,
+				2AD454311A196BD20041994C /* planeRight.png in Resources */,
+				2AD4542C1A196BD20041994C /* cloud2.png in Resources */,
+				2AD4542D1A196BD20041994C /* newPlaneRightSmall.png in Resources */,
+				2AD454301A196BD20041994C /* playButton.png in Resources */,
 				2AEEA8151A102F2E00FFF79A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AEEA8101A102F2D00FFF79A /* GameScene.swift in Sources */,
+				2AEEA8341A10628D00FFF79A /* PlayScene.swift in Sources */,
 				2AEEA8121A102F2E00FFF79A /* GameViewController.swift in Sources */,
+				2AEEA8321A10541A00FFF79A /* UIColorExtension.swift in Sources */,
 				2AEEA80C1A102F2D00FFF79A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +471,7 @@
 				2AEEA82B1A102F2E00FFF79A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AEEA82C1A102F2E00FFF79A /* Build configuration list for PBXNativeTarget "ParachuteTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +480,7 @@
 				2AEEA82E1A102F2E00FFF79A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
