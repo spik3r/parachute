@@ -12,7 +12,9 @@ class PlayScene: SKScene {
     
     let player = SKSpriteNode(imageNamed: "playerSmall")
     let cloud = SKSpriteNode(imageNamed: "cloud")
-    let cloud2 = SKSpriteNode(imageNamed: "cloud2")
+    let cloud2 = SKSpriteNode(imageNamed: "cloud")
+    let cloud3 = SKSpriteNode(imageNamed: "cloud")
+    let cloud4 = SKSpriteNode(imageNamed: "cloud")
     
     //determeine screenSize
     let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -23,10 +25,14 @@ class PlayScene: SKScene {
     var origCloudPositionY = CGFloat(5)
     var cloudPositionX = CGFloat(35)
     var cloudPositionY = CGFloat(0)
+    //var cloud2PositionX = CGFloat(350)
+    //var cloud2PositionY = CGFloat(200)
     var maxCloudY = CGFloat(0)
     var maxObjY = CGFloat(0)
     var maxObjX = CGFloat (0)
     var cloudSpeed = 5
+    var livesLeft: Int = 0
+    
     
     override func didMoveToView(view: SKView!) {
         println("We're at the new scene!")
@@ -39,14 +45,25 @@ class PlayScene: SKScene {
     func setupGame() {
         //do setup
         self.backgroundColor = UIColor(hex: 0x80D9FF)
+        self.livesLeft = 3
+        
+        //objects
         self.maxObjY = screenSize.height
         self.maxObjX = screenSize.width
+        self.cloudPositionX = CGFloat(35)
+        self.cloudPositionY = CGFloat(0)
         self.player.anchorPoint = CGPointMake(0.5, 0.5)
         self.player.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + (CGRectGetMidY(self.frame)/2 ))
-        self.cloud.position = CGPointMake(cloudPositionX, cloudPositionY)
-        
+        self.cloud.position = CGPointMake(setNewObjPosition(cloud), cloudPositionY)
+        self.cloud2.position = CGPointMake(setNewObjPosition(cloud2), (screenSize.height/2 + screenSize.height/6))
+        self.cloud3.position = CGPointMake(setNewObjPosition(cloud3), screenSize.height/2)
+        self.cloud4.position = CGPointMake(setNewObjPosition(cloud3), screenSize.height/5)
+        //add to screen
         self.addChild(self.player)
         self.addChild(self.cloud)
+        self.addChild(self.cloud2)
+        self.addChild(self.cloud3)
+        self.addChild(self.cloud4)
     }
     func gameOver() {
         //gameOver code
@@ -81,47 +98,45 @@ class PlayScene: SKScene {
     
     //Object functions
     //####################
-    func setNewObjPosition(name: SKSpriteNode) {
+    func setNewObjPosition(name: SKSpriteNode) -> CGFloat{
         //set the position
-        var newObjPosition = CGFloat(5)
-        respawn(name, newPosition: newObjPosition)
+       var maxX = UInt32(maxObjX)
+        var newObjPositionInt = arc4random_uniform(maxX)
+        var newObjPosition = CGFloat(newObjPositionInt)
+        return newObjPosition
     }
     
-    func respawn(name: SKSpriteNode, newPosition: CGFloat) {
-        name.position.y = newPosition
+    func respawn(name: SKSpriteNode) {
+        var newPosition = setNewObjPosition(name)
+        name.position.x = newPosition
+        name.position.y = cloudPositionY
     }
     func objectOffSceen(name: SKSpriteNode) {
         if name.position.y >= self.maxObjY{
-            println("bigger than max height!")
-            setNewObjPosition(name)
+            respawn(name)
         }
-        println( "name = \(_stdlib_getTypeName(name))")
-        //name.position.y = origCloudPositionY
-        //self.cloud.position.y = origCloudPositionY
-        self.maxObjY = screenSize.height
-        //println(self.cloud.position.y)
-        //  println(screenSize.height)
+        //println( "name = \(_stdlib_getTypeName(name))")
     }
     
     func cloudOffScreen() {
         self.cloud.position.y = origCloudPositionY
         self.maxObjY = screenSize.height
         println(self.cloud.position.y)
-        //  println(screenSize.height)
     }
     
     
     
     
     override func update(currentTime: NSTimeInterval) {
-        
-        //if self.cloud.position.y >= maxCloudY {
-        //self.cloud.position.y = self.origCloudPositionY
-        //objectOffSceen(cloud)
-        //}
-        //move the cloud
+
         cloud.position.y += CGFloat(self.cloudSpeed)
-        println(cloud.position.y)
+        cloud2.position.y += CGFloat(self.cloudSpeed)
+        cloud3.position.y += CGFloat(self.cloudSpeed)
+        cloud4.position.y += CGFloat(self.cloudSpeed)
+
         objectOffSceen(cloud)
+        objectOffSceen(cloud2)
+        objectOffSceen(cloud3)
+        objectOffSceen(cloud4)
     }
 }
