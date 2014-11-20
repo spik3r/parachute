@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+
 class PlayScene: SKScene {
     
     let player = SKSpriteNode(imageNamed: "playerSmall")
@@ -31,8 +32,9 @@ class PlayScene: SKScene {
     var maxObjY = CGFloat(0)
     var maxObjX = CGFloat (0)
     var cloudSpeed = 5
+    var playerSpeed = CGFloat (3)
     var livesLeft: Int = 0
-    
+    var gamePaused = false
     
     override func didMoveToView(view: SKView!) {
         println("We're at the new scene!")
@@ -46,6 +48,8 @@ class PlayScene: SKScene {
         //do setup
         self.backgroundColor = UIColor(hex: 0x80D9FF)
         self.livesLeft = 3
+        self.playerSpeed = CGFloat (3)
+        self.gamePaused = false
         
         //objects
         self.maxObjY = screenSize.height
@@ -65,14 +69,27 @@ class PlayScene: SKScene {
         self.addChild(self.cloud3)
         self.addChild(self.cloud4)
     }
+    
     func gameOver() {
         //gameOver code
     }
+    
     func newHighScore() {
         // high score code
     }
-    func togglePause() {
+    
+    func togglePause(isPaused: Bool) {
         //pause/resume
+        if isPaused {
+            self.gamePaused = false
+            println("unpaused")
+        }
+        else {
+            self.gamePaused = true
+            println("paused")
+        }
+            
+        
     }
     func collision() {
         //collision code
@@ -83,11 +100,24 @@ class PlayScene: SKScene {
     
     //Player functions
     //####################
-    func canMove() {
-        //check move is valid
+    func canMove() -> Bool{
+        if player.position.x + player.size.width/2 > self.maxObjX || player.position.x - player.size.width/2 < 0{
+            
+            // can't move
+            return false
+        }else {
+            //can move
+            return true
+        }
     }
     func movePlayer() {
         //move the player
+        if canMove() {
+            player.position.x += playerSpeed
+        }else {
+            playerSpeed *= -1
+            player.position.x += playerSpeed
+        }
     }
     func loseHealth() {
         //removes a life
@@ -115,6 +145,10 @@ class PlayScene: SKScene {
         if name.position.y >= self.maxObjY{
             respawn(name)
         }
+        if name.position.x > self.maxObjX || name.position.x < 0{
+            // off screen x-axis
+        }
+        
         //println( "name = \(_stdlib_getTypeName(name))")
     }
     
@@ -125,18 +159,34 @@ class PlayScene: SKScene {
     }
     
     
-    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        for touch: AnyObject in touches{
+            let location = touch.locationInNode(self)
+            //if self.nodeAtPoint(location) == self.playButton {
+                println("tapped the screen!")
+                togglePause(self.gamePaused)
+
+            //}
+        }
+        
+    }
     
     override func update(currentTime: NSTimeInterval) {
 
-        cloud.position.y += CGFloat(self.cloudSpeed)
-        cloud2.position.y += CGFloat(self.cloudSpeed)
-        cloud3.position.y += CGFloat(self.cloudSpeed)
-        cloud4.position.y += CGFloat(self.cloudSpeed)
+        if !gamePaused {
+            
+            cloud.position.y += CGFloat(self.cloudSpeed)
+            cloud2.position.y += CGFloat(self.cloudSpeed)
+            cloud3.position.y += CGFloat(self.cloudSpeed)
+            cloud4.position.y += CGFloat(self.cloudSpeed)
+            
+            objectOffSceen(cloud)
+            objectOffSceen(cloud2)
+            objectOffSceen(cloud3)
+            objectOffSceen(cloud4)
+            
+            movePlayer()
+        }
 
-        objectOffSceen(cloud)
-        objectOffSceen(cloud2)
-        objectOffSceen(cloud3)
-        objectOffSceen(cloud4)
     }
 }
