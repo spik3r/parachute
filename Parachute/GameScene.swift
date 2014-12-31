@@ -11,12 +11,17 @@ import SpriteKit
 class GameScene: SKScene {
     
     let playButton = SKSpriteNode(imageNamed: "playButton")
-    
+    let welcomeLabel = SKLabelNode(fontNamed: "Chalkduster")
     override func didMoveToView(view: SKView) {
         
         self.playButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         self.addChild(self.playButton)
         self.backgroundColor = UIColor(hex: 0x80D9FF)
+        self.welcomeLabel.text = String("Press the play button to begin")
+        self.welcomeLabel.fontSize = 30
+        self.welcomeLabel.fontColor = SKColor.blackColor()
+        self.welcomeLabel.position = CGPoint(x: (size.width/2 ), y: (size.height/2 + size.height/4))
+        self.addChild(welcomeLabel)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {

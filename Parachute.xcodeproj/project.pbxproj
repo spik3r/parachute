@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A594D861A247B750040834D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A594D851A247B740040834D /* GameOverScene.swift */; };
+		2A99E0331A25C4F9009DDD9C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A99E0321A25C4F9009DDD9C /* iAd.framework */; };
 		2AD4542C1A196BD20041994C /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454221A196BD20041994C /* cloud2.png */; };
 		2AD4542D1A196BD20041994C /* newPlaneRightSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454231A196BD20041994C /* newPlaneRightSmall.png */; };
 		2AD4542E1A196BD20041994C /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD454241A196BD20041994C /* play.png */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A594D851A247B740040834D /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		2A99E0321A25C4F9009DDD9C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		2AD454221A196BD20041994C /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/cloud2.png; sourceTree = "<group>"; };
 		2AD454231A196BD20041994C /* newPlaneRightSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newPlaneRightSmall.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/newPlaneRightSmall.png; sourceTree = "<group>"; };
 		2AD454241A196BD20041994C /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = ../../SpriteKitSimpleGameSwift/Parachuter/Parachuter/Parachuter/play.png; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A99E0331A25C4F9009DDD9C /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +109,7 @@
 		2AEEA7FD1A102F2D00FFF79A = {
 			isa = PBXGroup;
 			children = (
+				2A99E0321A25C4F9009DDD9C /* iAd.framework */,
 				2AEEA8081A102F2D00FFF79A /* Parachute */,
 				2AEEA8221A102F2E00FFF79A /* ParachuteTests */,
 				2AEEA8071A102F2D00FFF79A /* Products */,
@@ -126,6 +132,7 @@
 				2AEEA80B1A102F2D00FFF79A /* AppDelegate.swift */,
 				2AEEA80D1A102F2D00FFF79A /* GameScene.sks */,
 				2AEEA80F1A102F2D00FFF79A /* GameScene.swift */,
+				2A594D851A247B740040834D /* GameOverScene.swift */,
 				2AEEA8331A10628D00FFF79A /* PlayScene.swift */,
 				2AEEA8311A10541A00FFF79A /* UIColorExtension.swift */,
 				2AEEA8111A102F2E00FFF79A /* GameViewController.swift */,
@@ -277,6 +284,7 @@
 				2AEEA8341A10628D00FFF79A /* PlayScene.swift in Sources */,
 				2AEEA8121A102F2E00FFF79A /* GameViewController.swift in Sources */,
 				2AEEA8321A10541A00FFF79A /* UIColorExtension.swift in Sources */,
+				2A594D861A247B750040834D /* GameOverScene.swift in Sources */,
 				2AEEA80C1A102F2D00FFF79A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
