@@ -8,21 +8,30 @@
 
 import SpriteKit
 
+
 class GameOverScene: SKScene {
     
     let gameOverLabel = SKLabelNode(fontNamed: "Chalkduster")
     let highScoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+    
+    
+    let facebook = SKSpriteNode(imageNamed: "facebook")
+    let twitter = SKSpriteNode(imageNamed: "twitter")
+    let playButton = SKSpriteNode(imageNamed: "playButton")
+    
     var score = 0
     var highscore = 0
-
+    
     var userDefaults = NSUserDefaults.standardUserDefaults()
 
     override func didMoveToView(view: SKView) {
         self.backgroundColor = UIColor(hex: 0x80D9FF)
+        //notification
+        NSNotificationCenter.defaultCenter().postNotificationName("hideAds", object: nil)
         
         self.highscore = getHighscore()
         if score > highscore {
-            print(highscore)
+            //print(highscore)
             setHighScore(score)
             self.gameOverLabel.text = String("You Beat the HighScore!")
             self.highScoreLabel.text = String("New HighScore: ") + String(score)
@@ -44,7 +53,13 @@ class GameOverScene: SKScene {
         self.addChild(gameOverLabel)
         self.addChild(highScoreLabel)
         
-
+        self.twitter.position = CGPoint(x: (60), y: (size.height - 60))
+        addChild(twitter)
+        self.playButton.position = CGPointMake(CGRectGetMidX(self.frame), (size.height - 60))
+        self.addChild(playButton)
+        self.facebook.position = CGPoint(x: (size.width - 60), y: (size.height - 60))
+        self.addChild(facebook)
+        
     }
     
     func getHighscore() -> Int {
@@ -63,16 +78,23 @@ class GameOverScene: SKScene {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches{
             let location = touch.locationInNode(self)
-            //if self.nodeAtPoint(location) == self.playButton {
-            var scene = GameScene(size: self.size)
-            let skView = self.view as SKView!
-            skView.ignoresSiblingOrder = true
-            scene.scaleMode = .ResizeFill
-            scene.size = skView.bounds.size
-            //scene.score = self.score
-            skView.presentScene(scene)
-            
-            //}
+            if self.nodeAtPoint(location) == self.playButton {
+                //println("Go to the game!")
+                var scene = PlayScene(size: self.size)
+                let skView = self.view as SKView!
+                skView.ignoresSiblingOrder = true
+                scene.scaleMode = .ResizeFill
+                scene.size = skView.bounds.size
+                skView.presentScene(scene)
+            }
+            if self.nodeAtPoint(location) == self.facebook {
+                // post to facebook
+                //println("fb pushed")
+                NSNotificationCenter.defaultCenter().postNotificationName("facebook", object: nil)
+            }
+            if self.nodeAtPoint(location) == self.twitter {
+                NSNotificationCenter.defaultCenter().postNotificationName("twitter", object: nil)
+            }
         }
         
     }

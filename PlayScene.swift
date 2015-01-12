@@ -9,8 +9,6 @@
 import SpriteKit
 import CoreMotion
 
-
-
 class PlayScene: SKScene {
     
     //coremotion
@@ -64,12 +62,17 @@ class PlayScene: SKScene {
 
     
     override func didMoveToView(view: SKView!) {
-        println("We're at the new scene!")
+        //println("We're at the new scene!")
         //do the setup
+        //notification
+        NSNotificationCenter.defaultCenter().postNotificationName("showAds", object: nil)
+        //NSNotificationCenter.defaultCenter().postNotificationName("hideAds", object: nil)
         setupGame()
         motionManager.deviceMotionUpdateInterval = 1.0 / 30.0
         motionManager.startDeviceMotionUpdates()
-
+        let clickAction = SKAction.playSoundFileNamed("gameBGMusic.mp3", waitForCompletion: true);
+        
+        self.runAction(SKAction.repeatActionForever(clickAction));
     }
     //Game functions
     //####################
@@ -158,11 +161,11 @@ class PlayScene: SKScene {
         //pause/resume
         if isPaused {
             self.gamePaused = false
-            println("unpaused")
+            //println("unpaused")
         }
         else {
             self.gamePaused = true
-            println("paused")
+            //println("paused")
         }
             
         
@@ -172,11 +175,12 @@ class PlayScene: SKScene {
         if self.player.intersectsNode(self.planeLeft) {
             //collision
             //println("collision pleft")
-            //planeLeft.removeFromParent()
+           // planeLeft.removeFromParent()
+            
             if self.livesLeft - 1 >= 0 {
                 self.livesLeft -= 1
                 self.scoreLabel.text = "lives: " + String(self.livesLeft)
-                self.respawn(planeRight, direction: "left")
+                self.respawn(planeLeft, direction: "left")
 
 
             }
@@ -185,10 +189,10 @@ class PlayScene: SKScene {
                 gameOver()
             }
             
-            self.respawn(planeLeft, direction: "left")
+            //self.respawn(planeLeft, direction: "left")
         } else if self.player.intersectsNode(self.planeRight) {
             //println("collision pright")
-            planeRight.removeFromParent()
+           // planeRight.removeFromParent()
             
             if self.livesLeft - 1 >= 0 {
                 self.livesLeft -= 1
@@ -266,16 +270,16 @@ class PlayScene: SKScene {
     }
     
     func getPlayerDirection() {
-        println("get direction")
+        //println("get direction")
 
         if let attitude = motionManager.deviceMotion?.attitude? {
-            println(attitude)
+            //println(attitude)
             let y = CGFloat(-attitude.pitch * 2 / M_PI)
             let x = CGFloat(-attitude.roll * 2 / M_PI)
-            print("X: ")
-            println(x)
-            print("Y: ")
-            println(y)
+            //print("X: ")
+            //println(x)
+            //print("Y: ")
+            //println(y)
             if y > 0 {
                 //right
                 setSpeedRight()
@@ -440,7 +444,7 @@ class PlayScene: SKScene {
     func cloudOffScreen() {
         self.cloud.position.y = origCloudPositionY
         self.maxObjY = screenSize.height
-        println(self.cloud.position.y)
+        //println(self.cloud.position.y)
     }
     
     //Enemy functions
@@ -448,7 +452,7 @@ class PlayScene: SKScene {
     func movePlaneLeft(name: SKSpriteNode) {
         var nameStr = name.name
         if nameStr != nil {
-           println(nameStr)
+           //println(nameStr)
         }
         name.position.x += self.leftPlaneSpeed
     }
@@ -467,7 +471,7 @@ class PlayScene: SKScene {
         for touch: AnyObject in touches{
             let location = touch.locationInNode(self)
             //if self.nodeAtPoint(location) == self.playButton {
-                println("tapped the screen!")
+                //println("tapped the screen!")
                 togglePause(self.gamePaused)
                 //movePlayerDown()
             //}
@@ -500,6 +504,10 @@ class PlayScene: SKScene {
         self.player = SKSpriteNode(imageNamed: "playerSmall")
         self.player.position = CGPointMake(x, y )
         self.addChild(self.player)
+    }
+    
+    func startBGMusic() {
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
     override func update(currentTime: NSTimeInterval) {

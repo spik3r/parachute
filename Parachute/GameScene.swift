@@ -28,7 +28,7 @@ class GameScene: SKScene {
         for touch: AnyObject in touches{
             let location = touch.locationInNode(self)
             if self.nodeAtPoint(location) == self.playButton {
-                println("Go to the game!")
+                //println("Go to the game!")
                 var scene = PlayScene(size: self.size)
                 let skView = self.view as SKView!
                 skView.ignoresSiblingOrder = true
